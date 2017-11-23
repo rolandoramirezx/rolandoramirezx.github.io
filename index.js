@@ -17,6 +17,9 @@ $(document).ready(function(){
 
         $.ajax({
             type: 'POST',
+            headers: {
+                'Content-Type':'application/json'
+            },
             contentType: 'application/json',
             url: url,
             data: JSON.stringify(sets),
