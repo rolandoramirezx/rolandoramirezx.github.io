@@ -20,6 +20,16 @@
     </p>
 </div>
 <div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <div class="alert alert-danger alert-dismissible fade" role="alert">
+                <strong>Error</strong> <span id="errorMsg"></span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
 
     <div class="row">
         <div class="col-sm">
@@ -35,7 +45,21 @@
             </form>
         </div>
     </div>
-    <div id="set-result" class="row"> <!--/practice here-->
+    <div class="row"> <!--/practice here-->
+        <div class="col-sm">
+            <table id="set-result" class="table invisible">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Set</th>
+                    <th scope="col">Outcome</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
 
     </div>
 </div>

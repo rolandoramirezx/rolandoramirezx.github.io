@@ -1,4 +1,7 @@
 $(document).ready(function(){
+    $(".alert").alert();
+    $('.alert').hide();
+
     //Select an element
     $('#set-calculate').click(function(e){
         //Stop a full page sumbit to the server
@@ -19,14 +22,21 @@ $(document).ready(function(){
             data: JSON.stringify(sets),
             dataType: 'json',
             success: function(data){
-                $('#set-result').empty();
-                data.forEach(function(e){
-                    var html = e.set + " " + e.outcome;
-                    $('#set-result').append(html);
+                $('#set-result').removeClass('invisible');
+                $('#set-result > tbody')
+                    .empty();
+                data.forEach(function(e, index){
+                    var html = '<tr>' +
+                        '<th scope="row">' + index + '</th>' +
+                        '<td>' + e.set + '</td>' +
+                        '<td>' + e.outcome + '</td>' +
+                        '</tr>';
+                    $('#set-result > tbody').append(html);
                 });
             },
             error: function(e){
-                console.log(e);
+                $('#errorMsg').text(e.responseJSON.message);
+                $(".alert").addClass('show').show();
             }
         });
     });
